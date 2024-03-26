@@ -50,12 +50,23 @@ button {
     box-shadow: none;
     /* Default style removal */
     width: 80px;
-    height: 80px;
+    height: 60px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 32px;
     color: white;
     background-color: rgb(60, 60 , 60);
     border-radius: 15px;
+}
+
+#onoff {
+    width: 175px;
+    font-size: 22px;
+    background-color: rgba(255,93,52,255);
+}
+
+#clear {
+    font-size: 22px;
+    background-color: rgba(255,93,52,255);
 }
 
 button:hover {
@@ -91,4 +102,8 @@ button:active {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.operator {
+    background-color: rgb(252,155,132);
 }
