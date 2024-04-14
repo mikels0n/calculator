@@ -6,42 +6,41 @@
     <title>Calculator</title>
     <link href="https://fonts.cdnfonts.com/css/calculator" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
     <div class="wrapper_calc">
         <div class="content_calc">
-            <div></div>
             <div class="row">
-                <div class="display">
-                    0
+                <div id="display">
+                    
                 </div>
             </div>
             <div class="row">
                 <div class="buttons">
                     <button id="onoff" disabled>ON/OFF</button>
-                    <button id="clear">Clear</button>
+                    <button id="clear">C</button>
                 </div>
                 <div class="buttons">
-                    <button class="num">7</button>
-                    <button class="num">8</button>
-                    <button class="num">9</button>
+                    <button class="num" id="seven">7</button>
+                    <button class="num" id="eight">8</button>
+                    <button class="num" id="nine">9</button>
                     <button class="operator">÷</button>
                 </div>
                 <div class="buttons">
-                    <button class="num">4</button>
-                    <button class="num">5</button>
-                    <button class="num">6</button>
+                    <button class="num" id="four">4</button>
+                    <button class="num" id="five">5</button>
+                    <button class="num" id="six">6</button>
                     <button class="operator">x</button>
                 </div>
                 <div class="buttons">
-                    <button class="num">1</button>
-                    <button class="num">2</button>
-                    <button class="num">3</button>
+                    <button class="num" id="one">1</button>
+                    <button class="num" id="two">2</button>
+                    <button class="num" id="three">3</button>
                     <button class="operator">-</button>
                 </div>
                 <div class="buttons">
-                    <button class="num">0</button>
+                    <button class="num" id="zero">0</button>
                     <button class="operator">.</button>
                     <button class="operator">=</button>
                     <button class="operator">+</button>
