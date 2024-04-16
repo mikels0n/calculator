@@ -201,6 +201,9 @@ zero.addEventListener('click', () => {
 })
 
 clear.addEventListener('click', () => {
+    numberOne = 0;
+    numberTwo = 0;
+    operator = "";
     clearArray(numberOnDisplay);
     numberOnDisplay.push("0");
     refreshDisplay();
@@ -267,15 +270,21 @@ multiplyButton.addEventListener('click', () => {
 })
 
 result.addEventListener('click', () => {
+    numberTwo = arrayToNum(numberOnDisplay);
     if (numberOne == 0 && numberTwo == 0) {
         return;
     } 
+    else if (operator == "/" && numberTwo == 0){
+        display.textContent = "CAN'T DO."
+    }
     else { 
-        numberTwo = arrayToNum(numberOnDisplay);
         numberOne = operate(operator, numberOne, numberTwo);
         clearArray(numberOnDisplay);
         operator = "";
-        display.textContent = numberOne;
+        if (numberOne % 1 == 0.5) {
+            display.textContent = (numberOne).toFixed(1);
+        }
+        else display.textContent = numberOne;
     }
 })
 
