@@ -209,7 +209,12 @@ clear.addEventListener('click', () => {
 plusButton.addEventListener('click', () => {
     if (numberOnDisplay.length == 0) {
         operator = "+";
-    } else {
+    } 
+    else if (operator != "") {
+        result.click();
+        operator = "+";
+    }
+    else {
         operator = "+";
         numberOne = arrayToNum(numberOnDisplay);
         clearArray(numberOnDisplay);
@@ -219,7 +224,12 @@ plusButton.addEventListener('click', () => {
 minusButton.addEventListener('click', () => {
     if (numberOnDisplay.length == 0) {
         operator = "-";
-    } else {
+    } 
+    else if (operator != "") {
+        result.click();
+        operator = "-";
+    }
+    else {
         operator = "-";
         numberOne = arrayToNum(numberOnDisplay);
         clearArray(numberOnDisplay);
@@ -229,7 +239,12 @@ minusButton.addEventListener('click', () => {
 divideButton.addEventListener('click', () => {
     if (numberOnDisplay.length == 0) {
         operator = "/";
-    } else {
+    } 
+    else if (operator != "") {
+        result.click();
+        operator = "/";
+    }
+    else {
         operator = "/";
         numberOne = arrayToNum(numberOnDisplay);
         clearArray(numberOnDisplay);
@@ -239,7 +254,12 @@ divideButton.addEventListener('click', () => {
 multiplyButton.addEventListener('click', () => {
     if (numberOnDisplay.length == 0) {
         operator = "*";
-    } else {
+    } 
+    else if (operator != "") {
+        result.click();
+        operator = "*";
+    }
+    else {
         operator = "*";
         numberOne = arrayToNum(numberOnDisplay);
         clearArray(numberOnDisplay);
@@ -247,11 +267,16 @@ multiplyButton.addEventListener('click', () => {
 })
 
 result.addEventListener('click', () => {
-    numberTwo = arrayToNum(numberOnDisplay);
-    numberOne = operate(operator, numberOne, numberTwo);
-    clearArray(numberOnDisplay);
-    operator = "";
-    display.textContent = numberOne;
+    if (numberOne == 0 && numberTwo == 0) {
+        return;
+    } 
+    else { 
+        numberTwo = arrayToNum(numberOnDisplay);
+        numberOne = operate(operator, numberOne, numberTwo);
+        clearArray(numberOnDisplay);
+        operator = "";
+        display.textContent = numberOne;
+    }
 })
 
 
