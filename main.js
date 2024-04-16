@@ -270,25 +270,36 @@ multiplyButton.addEventListener('click', () => {
 })
 
 result.addEventListener('click', () => {
+    let displayResult = "";
     numberTwo = arrayToNum(numberOnDisplay);
     if (numberOne == 0 && numberTwo == 0) {
         return;
     } 
     else if (operator == "/" && numberTwo == 0){
-        display.textContent = "CAN'T DO."
+        clear.click();
+        display.textContent = "CAN'T DO.";
     }
     else { 
         numberOne = operate(operator, numberOne, numberTwo);
         clearArray(numberOnDisplay);
         operator = "";
         if (numberOne % 1 == 0.5) {
-            display.textContent = (numberOne).toFixed(1);
+            displayResult = (numberOne).toFixed(1).toString();
+            if (displayResult.length > 9) {
+                display.textContent = "Num too long."
+            }
+            else display.textContent = displayResult;
         }
-        else display.textContent = numberOne;
+        else {
+            displayResult = numberOne.toString();
+            if (displayResult.length > 9) {
+                display.textContent = "Num2Long";
+            }
+            else 
+            display.textContent = displayResult;
+        }
     }
 })
-
-
 
 function operate(operator, numberOne, numberTwo) {
     switch (operator) {
@@ -302,5 +313,3 @@ function operate(operator, numberOne, numberTwo) {
             return divide(numberOne,numberTwo);
     }
 }
-
-//Funkce pro generování čísla na displeji klikáním tlačítek
