@@ -2,6 +2,7 @@ let numberOne = 0;
 let numberTwo = 0;
 let operator = '';
 let numberOnDisplay = ["0"];
+let previousCalcul = false;
 const one = document.querySelector("#one");
 const two = document.querySelector("#two");
 const three = document.querySelector("#three");
@@ -70,74 +71,133 @@ function checkOperator() {
     }
 }
 
+function maxLengthCheck() {
+    if (numberOnDisplay.length == 9) {
+        return(true);
+    }
+    else {
+        return(false);
+    }
+}
+
 one.addEventListener('click', () => {
     checkZeroOnDisplay();
     checkOperator();
-    numberOnDisplay.push("1");
-    refreshDisplay();
+    if (maxLengthCheck() == true) {
+        return
+    }
+    else {
+        numberOnDisplay.push("1");
+        refreshDisplay();
+    }
 })
 
 two.addEventListener('click', () => {
     checkZeroOnDisplay();
     checkOperator();
-    numberOnDisplay.push("2");
-    refreshDisplay();
+    if (maxLengthCheck() == true) {
+        return
+    }
+    else {
+        numberOnDisplay.push("2");
+        refreshDisplay();
+    }
 })
 
 three.addEventListener('click', () => {
     checkZeroOnDisplay();
     checkOperator();
-    numberOnDisplay.push("3");
-    refreshDisplay();
+    if (maxLengthCheck() == true) {
+        return
+    }
+    else {
+        numberOnDisplay.push("3");
+        refreshDisplay();
+    }
 })
 
 four.addEventListener('click', () => {
     checkZeroOnDisplay();
     checkOperator();
-    numberOnDisplay.push("4");
-    refreshDisplay();
+    if (maxLengthCheck() == true) {
+        return
+    }
+    else {
+        numberOnDisplay.push("4");
+        refreshDisplay();
+    }
 })
 
 five.addEventListener('click', () => {
     checkZeroOnDisplay();
     checkOperator();
-    numberOnDisplay.push("5");
-    refreshDisplay();
+    if (maxLengthCheck() == true) {
+        return
+    }
+    else {
+        numberOnDisplay.push("5");
+        refreshDisplay();
+    }
 })
 
 six.addEventListener('click', () => {
     checkZeroOnDisplay();
     checkOperator();
-    numberOnDisplay.push("6");
-    refreshDisplay();
+    if (maxLengthCheck() == true) {
+        return
+    }
+    else {
+        numberOnDisplay.push("6");
+        refreshDisplay();
+    }
 })
 
 seven.addEventListener('click', () => {
     checkZeroOnDisplay();
     checkOperator();
-    numberOnDisplay.push("7");
-    refreshDisplay();
+    if (maxLengthCheck() == true) {
+        return
+    }
+    else {
+        numberOnDisplay.push("7");
+        refreshDisplay();
+    }
 })
 
 eight.addEventListener('click', () => {
     checkZeroOnDisplay();
     checkOperator();
-    numberOnDisplay.push("8");
-    refreshDisplay();
+    if (maxLengthCheck() == true) {
+        return
+    }
+    else {
+        numberOnDisplay.push("8");
+        refreshDisplay();
+    }
 })
 
 nine.addEventListener('click', () => {
     checkZeroOnDisplay();
     checkOperator();
-    numberOnDisplay.push("9");
-    refreshDisplay();
+    if (maxLengthCheck() == true) {
+        return
+    }
+    else {
+        numberOnDisplay.push("9");
+        refreshDisplay();
+    }
 })
 
 zero.addEventListener('click', () => {
     checkZeroOnDisplay();
     checkOperator();
-    numberOnDisplay.push("0");
-    refreshDisplay();
+    if (maxLengthCheck() == true) {
+        return
+    }
+    else {
+        numberOnDisplay.push("0");
+        refreshDisplay();
+    }
 })
 
 clear.addEventListener('click', () => {
@@ -147,14 +207,51 @@ clear.addEventListener('click', () => {
 })
 
 plusButton.addEventListener('click', () => {
-    operator = "+";
-    numberOne = arrayToNum(numberOnDisplay);
-    clearArray(numberOnDisplay);
+    if (numberOnDisplay.length == 0) {
+        operator = "+";
+    } else {
+        operator = "+";
+        numberOne = arrayToNum(numberOnDisplay);
+        clearArray(numberOnDisplay);
+    }
+})
+
+minusButton.addEventListener('click', () => {
+    if (numberOnDisplay.length == 0) {
+        operator = "-";
+    } else {
+        operator = "-";
+        numberOne = arrayToNum(numberOnDisplay);
+        clearArray(numberOnDisplay);
+    }
+})
+
+divideButton.addEventListener('click', () => {
+    if (numberOnDisplay.length == 0) {
+        operator = "/";
+    } else {
+        operator = "/";
+        numberOne = arrayToNum(numberOnDisplay);
+        clearArray(numberOnDisplay);
+    }
+})
+
+multiplyButton.addEventListener('click', () => {
+    if (numberOnDisplay.length == 0) {
+        operator = "*";
+    } else {
+        operator = "*";
+        numberOne = arrayToNum(numberOnDisplay);
+        clearArray(numberOnDisplay);
+    }
 })
 
 result.addEventListener('click', () => {
     numberTwo = arrayToNum(numberOnDisplay);
-    display.textContent = operate(operator, numberOne, numberTwo);
+    numberOne = operate(operator, numberOne, numberTwo);
+    clearArray(numberOnDisplay);
+    operator = "";
+    display.textContent = numberOne;
 })
 
 
