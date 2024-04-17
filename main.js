@@ -283,20 +283,19 @@ result.addEventListener('click', () => {
         numberOne = operate(operator, numberOne, numberTwo);
         clearArray(numberOnDisplay);
         operator = "";
-        if (numberOne % 1 == 0.5) {
+        if (numberOne % 1 != 0) {
             displayResult = (numberOne).toFixed(1).toString();
             if (displayResult.length > 9) {
-                display.textContent = "Num too long."
+                display.textContent = "Num2Long."
             }
             else display.textContent = displayResult;
         }
-        else {
+        else if (numberOne % 1 == 0) {
             displayResult = numberOne.toString();
             if (displayResult.length > 9) {
                 display.textContent = "Num2Long";
             }
-            else 
-            display.textContent = displayResult;
+            else display.textContent = displayResult;
         }
     }
 })
